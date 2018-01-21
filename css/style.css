@@ -1,0 +1,254 @@
+@font-face {
+    font-family: 'Ubuntu';
+    src: url('../fonts/Ubuntu/Ubuntu-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'Gagalin-Regular';
+    src: url('../fonts/Gagalin/Gagalin-Regular.otf');
+}
+
+@font-face {
+    font-family: 'Lifehack Medium';
+    src: url('../fonts/Lifehack Medium.otf');
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.clearfix:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+body {
+    background-color: #000000;
+    height: 100%;
+}
+
+ .wrapper {
+    min-height: 100%;
+    min-width: 1100px;
+}
+
+.wrapper:after{
+    content: '';
+    display: block;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;    
+    height: 100%;
+}
+
+/*-----------------SECTION_1---------------------*/
+
+.main__section {
+    background-image: url("../img/bg.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* min-height: 650px; */
+    /*height: 100vh;                          /*TODO: CHANGE*/
+    height: 650px;
+}
+
+.header {
+    width: 100%;
+    min-height: 81px;
+    /* padding: 5px 77px 0px 77px; TODO: CHANGE */
+    /* display: flex;
+    align-items: center; */
+    margin: 0 auto;
+    max-width: 944px;
+}
+
+.header__logo {
+    min-width: 90px;
+    min-height: 90px;
+    margin-top: 12px;
+    margin-right: 230px;                /*TODO: CHANGE */
+    float: left;
+}
+
+.header__menu {
+    float: left;
+    margin-top: 31px;                   /*TODO: CHANGE */
+}
+
+.menu__item {
+    display: inline;
+    padding-right: 5px;
+}
+
+.menu__item:nth-child(-n+5)::after{
+    content: "•";
+    color: #fff;
+    padding-left: 9px;
+    padding-right: 9px;
+}
+
+.menu__item-link {
+    font-family: 'Ubuntu';
+    font-size: 13px; 
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.menu__item-link--order {
+    margin-left: 4px;
+    background-color: #e45028;
+    padding: 10px 15px;
+    border-radius: 7%
+}
+
+.menu__item-link--order:hover {
+    background-color: #c1401e;
+}
+
+.main__content {
+    display: inline-flex;
+    margin-top: 24px;                   /*TODO: CHANGE!*/
+    margin-left: 110px;                 /*TODO: CHANGE!*/
+}
+
+.burger {
+    margin-top: -50px;
+}
+
+.content--right,.main__text {
+    margin-top: 35px;                   /*TODO: CHANGE!*/
+}
+
+.main__heading {
+    font-family: 'Gagalin-Regular';
+    font-size: 68px;
+    color: #f9b43b;
+    font-size: 72px;/* Приближение из-за подстановки шрифтов */
+    font-weight: 400;
+    line-height: 85.024px;/* Приближение из-за подстановки шрифтов */
+    text-align: left;
+    transform: scaleX(1.1006);
+}
+
+.main__subheading {
+    font-family: 'Lifehack Medium';
+    font-size: 62px;
+    color: #fff;
+    margin-top: -33px;                      /*TODO: CHANGE!*/
+}
+
+.nav__points {
+    position: fixed;
+    top: 9%;
+    left: 96%;
+}
+
+.nav__points-list {
+    color: #fff;
+    font-size: 20px;
+}
+
+.nav__points-list--item::before {
+    content: "•";
+}
+
+/* TODO: ОБВЕДЕННЫЙ КРУЖОК ДЛЯ КЛАССА .point-active */
+
+.nav__arrow {
+    margin: 0 auto;
+    width: 29px;
+    height: 14px;
+    margin-top: 95px;
+}
+
+/*-----------------SECTION_2---------------------*/
+
+.about__section {
+    background-image: url("../img/bg2.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* min-height: 650px; */
+    /* height: 100vh; */
+    height: 650px;
+}
+
+.about__heading {
+    padding-top: 133px;
+    font-family: Gagalin-Regular;
+    color:  #2f3234;
+    font-size: 71.73px;/* Приближение из-за подстановки шрифтов */
+    font-weight: 400;
+    line-height: 63.745px;/* Приближение из-за подстановки шрифтов */
+    text-align: center;
+    transform: scaleY(1.0046);/* свойства ширины и высоты были исключены, поскольку было выполнено трансформирование */
+}
+
+.features_list {            
+    margin-top: 55px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.features__item {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.feature__pic {
+
+}
+
+.feature__head {
+    /* background-color: green; */
+    margin-top: 40px;
+    margin-bottom: 20px;
+    font-family: 'Lifehack Medium';
+    color:  #2f3234;
+    font-size: 23.97px;/* Приближение из-за подстановки шрифтов */
+    font-weight: 500;
+    line-height: 28px;/* Приближение из-за подстановки шрифтов */
+    text-align: center;
+    transform: scaleY(1.0061);
+}
+
+.feature__text {
+    /* background-color: blue; */
+    font-family: Ubuntu;
+    color:  #2f3234;
+    font-size: 14px;/* Приближение из-за подстановки шрифтов */
+    font-weight: 300;
+    line-height: 24px;/* Приближение из-за подстановки шрифтов */
+    text-align: center;
+    transform: scaleY(1.0028);
+}
+
+/*-----------------SECTION_6---------------------*/
+
+.photos__list {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.photos__item {
+    /* width: 25%;
+    height: 25%; */
+    height: 325px;
+    width: 275px;
+    filter: grayscale(100%);
+}
+
+.photos__item:hover {
+    opacity: 0.4;
+}
+
