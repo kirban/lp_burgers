@@ -1,0 +1,38 @@
+.best {
+  background-image: url('../img/bg2.png');
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.section__title--best {
+  color: #2f3234;
+  padding: 0;
+  margin-bottom: rem(60px);
+}
+
+.features__list {
+  text-align: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.features__img {
+  margin-bottom: rem(20px);
+}
+
+.features__title {
+  font-family: Lifehack;
+  font-weight: 500;
+  font-size: rem(24px);
+  line-height: rem(34px);
+  margin-bottom: rem(15px);
+}
+
+.features__text {
+  font-weight: 300;
+}
