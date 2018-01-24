@@ -1,0 +1,98 @@
+.team {
+    background-image: url('../img/team.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #fff;
+
+}
+
+.team__container {
+    width: 50%;
+    background-color: rgba(47, 50, 52, 0.93);
+    position: absolute;     // хотел поставить relative, но смутило, что в ТЗ жестко указано absolute
+    left: 50%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+
+.team__content {
+    display: flex;
+    width: 80%;
+    flex-direction: column;
+}
+
+.team__list {
+    padding-top: rem(50px);
+}
+
+.team__name {
+    font-family: gagalin, cursive;
+    font-weight: normal;
+    text-transform: uppercase;
+    margin: rem(16px) 0;
+    display: flex;
+    align-items: center;
+    transition: color 0.5s;
+    cursor: pointer;
+    &:hover {
+        color: $yellow;
+    }
+    &::before {
+        content: "";
+        align-self: center;
+        height: 0;
+        width: 0;
+        border-bottom: rem(6px) solid transparent;
+        border-top: rem(6px) solid $yellow;
+        border-right: rem(5px) solid transparent;
+        border-left: rem(5px) solid transparent;
+        margin-right: rem(10px);
+    }
+}
+
+.team__info {
+    // display: flex;
+    // align-items: center;
+    height: 0;
+    overflow: hidden;
+}
+
+.team__item.visible{
+    & .team__name{
+        color: $yellow;
+    }
+    & .team__name::before {        
+        transform: rotate(180deg);
+                         
+    }
+    & .team__info {
+        height: 100%;
+        overflow: initial;
+    }
+}
+
+.team__photo{
+    display: inline-block;
+    width: rem(100px);
+    height: rem(100px);
+    overflow: hidden;
+    position: relative;
+    margin: 0 rem(25px);
+}
+
+.team__text {
+    display: inline-block;
+    max-width: rem(240px);
+
+}
+
+.team__position, .team__about {
+    font-weight: 300;
+}
+
+.team__position {
+    font-weight: bold;
+    margin-bottom: rem(15px);
+}
+
