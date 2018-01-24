@@ -4,13 +4,55 @@
   height: 100%;
 }
 
+.nav__points {
+  position: fixed;
+  top: rem(90px);
+  right: 3%;
+
+  &-list--item {
+    cursor: pointer;
+    display: block;
+    border: rem(1px) solid transparent;
+    @include circle(rem(16px), transparent);
+    position: relative;
+    margin-bottom: rem(5px);
+
+    &.point-active {
+      border-color: #fff;
+    }
+  }
+
+}
+
+.nav__radio-fake {
+  display: block;
+  @include circle(rem(6px), $white);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: color 0.5s;        
+    &:hover {
+      background-color: $yellow;
+    }
+
+}
+
+
+
+.nav__radio-elem {
+  position: absolute;
+  top: 0px;
+  right: rem(-9999px);
+}
+
 .maincontent {
   height: 100%;
   min-height: 650px;
 }
 
 .container {
-  width: 940px;
+  width: rem(940px);
   margin: 0 auto;
   display: flex;
   justify-content: center;
@@ -21,8 +63,8 @@
 .section {
   height: 100%;
   background-color: rgba(0,0,0,0.31);
-  min-width: 940px;
-  min-height: 650px;
+  // min-width: rem(940px);
+  min-height: rem(650px);
 }
 
 .order-link {
