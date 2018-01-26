@@ -3,7 +3,6 @@
     background-repeat: no-repeat;
     background-size: cover;
     color: #fff;
-
 }
 
 .team__container {
@@ -13,7 +12,6 @@
     top: 0;
     bottom: 0;
     right: 0;
-    // left: 50%;
     min-height: 100%;
     display: flex;
     justify-content: center;
@@ -43,7 +41,7 @@
     }
     &::before {
         content: "";
-        align-self: center;
+        align-self: flex-end;
         height: 0;
         width: 0;
         border-bottom: rem(6px) solid transparent;
@@ -55,8 +53,6 @@
 }
 
 .team__info {
-    // display: flex;
-    // align-items: center;
     height: 0;
     overflow: hidden;
 }
@@ -68,7 +64,7 @@
     & .team__name::before {      
         align-self: flex-start;  
         transform: rotate(180deg);
-                         
+        transition: color 0.3s 0.5s;
     }
     & .team__info {
         height: 100%;
