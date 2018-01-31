@@ -353,7 +353,8 @@ ul {
 
 .arrow__img {
   width: 1.8125rem;
-  height: 0.875rem; }
+  height: 0.875rem;
+  fill: #ffff; }
 
 .best {
   background-image: url("../img/bg2.png");
@@ -417,6 +418,19 @@ ul {
   min-height: 7.5rem;
   min-width: 7.5rem;
   margin-bottom: 1.25rem; }
+
+.feature__icon {
+  height: 7.5rem;
+  width: 7.5rem; }
+
+.feature__icon--meat {
+  fill: #e25028; }
+
+.feature__icon--hand {
+  fill: #facb78; }
+
+.feature__icon--natural {
+  fill: #8ac03e; }
 
 @media screen and (max-width: 480px) {
   .features__description {
@@ -842,6 +856,15 @@ ul {
     transition: all 0.5s; }
   .contacts__phone:hover {
     color: #f9b43b; }
+
+.contacts__phone--icon {
+  width: 0.8125rem;
+  height: 0.75rem;
+  fill: #e45028;
+  margin-right: 0.5rem;
+  -webkit-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s; }
 
 .socials__list {
   display: -webkit-box;

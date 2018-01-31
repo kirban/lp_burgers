@@ -41,6 +41,23 @@
   margin-bottom: rem(20px);
 }
 
+.feature__icon {
+  height: rem(120px);
+  width: rem(120px);
+}
+
+.feature__icon--meat {
+  fill: #e25028;
+}
+
+.feature__icon--hand {
+  fill: #facb78;
+}
+
+.feature__icon--natural {
+  fill: #8ac03e;
+}
+
 .features__description {
   @include phones {
     align-items: flex-end;
