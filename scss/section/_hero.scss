@@ -6,16 +6,22 @@
   position: relative;
 }
 
+.hero__container {
+  padding-bottom: 8%;
+}
+
 .header {
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  flex-direction: row;
   align-items: center;
-  padding-top: 10px;
+
+  padding-top: rem(10px);
 }
 
 .header__logo {
-  margin-right: auto;
+  // margin-right: auto;
+  flex-grow: 1;
 }
 
 .nav {
@@ -24,18 +30,21 @@
     margin: 0;
     padding: 0;
   }
+
+  @include tablets {
+    display: none;
+  }
 }
 
 .nav__item {
-  display: inline-block;
-  vertical-align: middle;
-  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
   &:after {
     display: inline-block;
     vertical-align: middle;
     content: ' ';
     @include circle(5px, #fff);
-    margin: 0 12px;
+    margin: 0 rem(12px);
   }
   &:last-child:after {
     display: none;
@@ -44,7 +53,7 @@
 
 .nav__link {
   color: #ffffff;
-  font-size: 13px;
+  font-size: rem(13px);
   font-weight: 400;
   line-height: 1.42;
   text-transform: uppercase;
@@ -56,15 +65,24 @@
     text-decoration: underline;
   }
 }
+//?????????????????????????????????????????????????
+// .hamburger-menu {
+//   margin-left: rem(30);
+//   width: rem(24px);
+//   height: rem(24px);
+//   display: none;
+//   background: url(../img/icon/hamburger-menu.svg) 50% 50% no-repeat;
+//   opacity: 1;
 
-.hero__container {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding-bottom: 8%;
-}
+//   @include tablets {
+//     display: flex;
+//     z-index: 400;
+//     margin-right: rem(10px);    
+//   }
+// }
+//???????????????????????????????????????????????????????????????????
+
+
 
 .hero__content {
   width: 100%;
@@ -73,8 +91,26 @@
   flex-grow: 1;
   align-items: center;
   padding-bottom: 8%;
-}
 
+  // @include tablets {
+    
+  // }
+  @media screen and (max-width:922px) {
+    flex-direction: row;
+    text-align: center;
+    justify-content: center;
+  }
+}
+.hero__pic{
+  max-width: 100%;
+  max-height: 100%;
+  @include tablets {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -75%);
+  }
+}
 .hero__img, .hero__description {
   flex-basis: 50%;
   display: flex;
@@ -83,16 +119,20 @@
 .hero__description {
   flex-direction: column;
   justify-content: center;
+  max-width: rem(425px);
+  @include tablets {
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 50%);
+  }
 }
 
-.section__title {
-  color: #f9b43b;
-  font-family: 'Gagalin';
-  font-size: 72px;
-  font-weight: 300;
-  line-height: 1.42;
-  margin: 0;
-  padding-top: 60px;
+.section__title:first-child{
+  @include tablets {
+    padding-top: 0;
+  }
 }
 
 .hero__description-text {

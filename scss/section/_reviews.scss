@@ -1,5 +1,11 @@
 .reviews {
     width: 100%;
+    @include tablets {
+        height: 150%;
+    }
+    @include phones{     
+     height: 200%;
+    }
 }
 
 .reviews__list {
@@ -18,6 +24,11 @@
     width: 25%;
     position: relative;
     filter: grayscale(100%);
+    @include tablets {
+        width: 50%;
+        height: 25%;
+    }
+
     &:hover .reviews__content {
         opacity: 0.8;
         background-color: rgba(20, 20, 20, 0.8);

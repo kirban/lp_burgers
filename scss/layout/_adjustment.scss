@@ -52,7 +52,10 @@
 }
 
 .container {
-  width: rem(940px);
+  height: 100%;
+  max-width: rem(940px);
+  min-width: rem(300px);
+  width: 95%;
   margin: 0 auto;
   display: flex;
   justify-content: center;

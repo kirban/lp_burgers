@@ -15,16 +15,28 @@
     min-height: 100%;
     display: flex;
     justify-content: center;
+    @include tablets {
+        min-width: 100%;        
+    }
 }
 
 .team__content {
     display: flex;
     width: 80%;
     flex-direction: column;
+    @include tablets {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 }
 
 .team__list {
     padding-top: rem(50px);
+
+    @include tablets{
+        text-align: center;
+    }
 }
 
 .team__name {
@@ -36,6 +48,12 @@
     align-items: center;
     transition: color 0.5s;
     cursor: pointer;
+
+    @include tablets{
+        justify-content: center;
+        align-items: center;
+    }
+
     &:hover {
         color: $yellow;
     }
@@ -69,6 +87,13 @@
     & .team__info {
         height: 100%;
         overflow: initial;
+        @include tablets {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding-bottom: rem(15px);
+        }
     }
 }
 
@@ -84,7 +109,11 @@
 .team__text {
     display: inline-block;
     max-width: rem(240px);
-
+    @include tablets {
+        text-align: center;
+        margin-top: rem(20px);
+        max-width: rem(368px);
+    }
 }
 
 .team__position, .team__about {

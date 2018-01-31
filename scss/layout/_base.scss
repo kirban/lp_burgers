@@ -1,10 +1,15 @@
 html {
-  @include tablets {
+
+  @include laptop {
     font-size: 15px;
   }
   @include phones {
-    font-size: 14px;    // MB CHANGE
+    font-size: 14px;
   }
+  @include phones-small {
+    font-size: 13px;    // MB CHANGE
+  }
+
 }
 
 body {
@@ -31,6 +36,16 @@ ul {
   margin: 0;
   padding: 0;
   list-style: none;
+}
+
+.section__title {
+  color: #f9b43b;
+  font-family: 'Gagalin';
+  font-size: rem(72px);
+  font-weight: 300;
+  line-height: 1.42;
+  margin: 0;
+  padding-top: rem(60px);
 }
 
 .btn {

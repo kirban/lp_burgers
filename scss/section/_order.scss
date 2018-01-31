@@ -2,7 +2,19 @@
     background: url('../img/order.png') center center no-repeat;
     background-size: cover;
   }
-  
+
+.order__container {
+    // display: flex;
+    // // flex-direction: column;
+    // // justify-content: center;
+}
+
+.order__title {
+    @media screen and (max-width:659px){
+        text-align: center;
+    }
+}
+
 .form {
     margin-top: rem(57px);
     display: flex;
@@ -13,10 +25,29 @@
     color: #fff;
     font-size: rem(14px);
     font-weight: 300;
+
+    // @media screen and (max-width:940px) {
+    //     margin-left: 0;
+    //     flex-direction: column;
+    //     align-items: center;
+    // }
+    @include tablets {
+        justify-content: center;
+    }
+    @include phones {
+        flex-direction: column;
+        align-items: center;
+    }
 }
 
 .form__part {
     width: 49%;
+    @include tablets {
+        width: 60%;
+    }
+    @include phones {
+        width: 80%;
+    }
 }
   
   .form__input {
@@ -126,6 +157,10 @@
 
   .form__submit {
       margin-top: rem(20px);
+      @include tablets {
+        display: flex;
+        justify-content: center;
+    }
   }
 
   .form__btn--order {
