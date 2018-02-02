@@ -1,13 +1,13 @@
 html {
 
   @include laptop {
-    font-size: 15px;
+    font-size: rem(15px);
   }
   @include phones {
-    font-size: 14px;
+    font-size: rem(14px);
   }
   @include phones-small {
-    font-size: 13px;    // MB CHANGE
+    font-size: rem(13px);    // MB CHANGE
   }
 
 }
@@ -15,7 +15,7 @@ html {
 body {
   margin: 0;
   padding: 0;
-  font-size: 16px;
+  font-size: rem(16px);
   font-family: 'Ubuntu', Arial, Helvetica, sans-serif;
   line-height: 1.42;
   color: $dark;
@@ -45,7 +45,7 @@ ul {
   font-weight: 300;
   line-height: 1.42;
   margin: 0;
-  padding-top: rem(60px);
+  // padding-top: rem(60px);
 }
 
 .btn {
@@ -67,18 +67,15 @@ ul {
   transition: background-color 0.5s; 
 }
 
-.visuallyhidden {       // вместо display:none
-  position: absolute;
-
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  border: 0;
-  padding: 0;
-
-  white-space: nowrap;
-
-  clip-path: inset(100%);
-  clip: rect(0 0 0 0);
-  overflow: hidden;
-}
+// .visuallyhidden {       // вместо display:none
+//   position: absolute;
+//   width: 1px;
+//   height: 1px;
+//   margin: -1px;
+//   border: 0;
+//   padding: 0;
+//   white-space: nowrap;
+//   clip-path: inset(100%);
+//   clip: rect(0 0 0 0);
+//   overflow: hidden;
+// }

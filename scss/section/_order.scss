@@ -10,9 +10,12 @@
 }
 
 .order__title {
-    @media screen and (max-width:659px){
-        text-align: center;
+    @include phones {
+        font-size: rem(38px);
     }
+    // @media screen and (max-width:659px){
+    //     text-align: center;
+    // }
 }
 
 .form {
@@ -25,12 +28,7 @@
     color: #fff;
     font-size: rem(14px);
     font-weight: 300;
-
-    // @media screen and (max-width:940px) {
-    //     margin-left: 0;
-    //     flex-direction: column;
-    //     align-items: center;
-    // }
+    
     @include tablets {
         justify-content: center;
     }

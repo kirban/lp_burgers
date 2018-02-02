@@ -11,7 +11,10 @@
 .section__title--black {
   color: #2f3234;
   padding: 0;
-  margin-bottom: rem(60px);
+  margin-bottom: rem(28px);
+  @include phones {
+    font-size: rem(62px);
+  }
 }
 
 .features__list {
@@ -36,14 +39,14 @@
 }
 
 .features__img {
-  min-height: rem(120px);
-  min-width: rem(120px);
+  min-height: rem(90px);
+  min-width: rem(90px);
   margin-bottom: rem(20px);
 }
 
 .feature__icon {
-  height: rem(120px);
-  width: rem(120px);
+  height: rem(90px);
+  width: rem(90px);
 }
 
 .feature__icon--meat {
@@ -74,4 +77,5 @@
 
 .features__text {
   font-weight: 300;
+  font-size: rem(16px);
 }
