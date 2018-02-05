@@ -1,0 +1,142 @@
+.burger {
+    background: linear-gradient(0deg,#f9b33b,#eb8c38,#f9b33b);
+}
+
+.burger__container {
+    padding: rem(89px) rem(0px);
+    display: flex;
+    flex-direction: row;
+}
+
+.burger__arrow {
+    height: 100%;
+    position: absolute;
+    top: 50%;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    width: 1.875rem;
+    height: 0.9375rem;
+}
+
+.arrow__btn--left {
+    left: 1%;
+    transform: rotate(90deg);
+}
+
+.arrow__btn--right {
+    right: 1%;
+    transform: rotate(-90deg);
+}
+
+.burger__content {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+}
+
+.burger__text{
+    width: 50%;
+}
+
+.section__title--burger{
+    line-height: rem(64px);
+    margin-bottom: rem(20px);
+    color: $white;
+}
+
+.burger__desc{
+    color: $white;
+    line-height: rem(24px);
+    font-size: rem(14px);
+}
+
+.burger__price{
+    font-family: gagalin;
+    text-transform: uppercase;
+    font-size: rem(72px);
+    color: #e45028;
+}
+
+.burger__price--currency{
+    margin-left: rem(5px);
+    font-size: rem(30px);
+}
+
+.btn--burger{
+    display: inline-flex;
+    margin-left: rem(20px);
+}
+
+.burger__composition{
+    position: absolute;
+    top: rem(90px);
+}
+
+.composition__table{
+    opacity: 0;
+    transition: all 0.5s;
+    display: inline-flex;
+    position: absolute;
+    top: 0;
+    left: rem(90px);
+    background-color: rgba(255,255,255,0.9);
+    border-radius: rem(5px);
+    z-index: 200;
+    color: $dark;
+    font-family: ubuntu;
+    font-weight: 300;
+    width: rem(270px);
+    padding: rem(20px);
+    table-layout: fixed;
+}
+
+.composition__menu {
+    background-color: rgba(227, 80, 40, 0.4);
+    width: rem(90px);
+    height: rem(90px);
+    border-radius: rem(5px);
+    padding: rem(10px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.5s;
+    &:hover {
+        background-color: $orange;
+        & + .composition__table{
+            opacity: 1;
+        }
+    } 
+}
+
+.composition__caption{
+    color: $white;
+    font-family: gagalin;
+
+    &:before{
+        content: "";
+        display: block;
+        background-image: url("../img/icon/sprite.svg#burger");
+        background-size: contain;
+        height: 2.5rem;
+        width: 3.125rem;
+        margin-bottom: 0.625rem;
+    }
+}
+
+.composition__icon {
+    fill: $orange;
+    width: rem(40px);
+    height: rem(40px);
+    &--buns,&--cheese{
+        fill: #f9b33b;
+    }
+    &--salad,&--cucumber{
+        fill: #8ac03e;
+    }
+}
+
+.burger__calories{
+
+}
