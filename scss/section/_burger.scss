@@ -114,10 +114,10 @@
     color: $white;
     font-family: gagalin;
 
-    &:before{
+    &::before{
         content: "";
         display: block;
-        background-image: url("../img/icon/sprite.svg#burger");
+        background: url("../icons/burger.svg") 50% 50% no-repeat;
         background-size: contain;
         height: 2.5rem;
         width: 3.125rem;
@@ -138,5 +138,27 @@
 }
 
 .burger__calories{
+    background: url("../icons/kkal.svg") 50% 0% no-repeat;
+    background-size: contain;
+    position: absolute;
+    bottom: rem(90px);
+    width: rem(60px);
+    height: rem(80px);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    opacity: 0.5;
+}
 
+.burger__calories-caption {
+    font-family: gagalin;
+    color: $white;
+    text-transform: uppercase;
+    font-size: rem(20px);
+}
+
+.burger__calories-caption--text {
+    margin-top: rem(5px);
+    font-size: rem(14px);
 }
