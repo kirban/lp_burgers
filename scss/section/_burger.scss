@@ -10,39 +10,62 @@
 
 .burger__arrow {
     height: 100%;
-    position: absolute;
-    top: 50%;
-    bottom: 0;
-    right: 0;
-    left: 0;
     width: 1.875rem;
     height: 0.9375rem;
 }
 
 .arrow__btn--left {
-    left: 1%;
-    transform: rotate(90deg);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    transform: rotate(-90deg);
 }
 
 .arrow__btn--right {
-    right: 1%;
-    transform: rotate(-90deg);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    transform: rotate(90deg);
 }
 
 .burger__content {
     display: flex;
     flex-direction: row;
     align-items: flex-end;
+    @include tablets {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+}
+
+.burger__img {
+    max-width: 99%;
+    @include tablets {
+        max-width: 70%;
+    }
+    @include phones {
+        max-width: 60%;
+    }
 }
 
 .burger__text{
     width: 50%;
+    @include phones-small {
+     width: 90%   
+    }
 }
 
 .section__title--burger{
     line-height: rem(64px);
     margin-bottom: rem(20px);
     color: $white;
+    @include phones-small {
+     font-size: rem(36px);   
+    }
 }
 
 .burger__desc{
@@ -71,6 +94,9 @@
 .burger__composition{
     position: absolute;
     top: rem(90px);
+    @include phones {
+        left: 5%;
+    }
 }
 
 .composition__table{
@@ -149,6 +175,10 @@
     justify-content: flex-end;
     align-items: center;
     opacity: 0.5;
+
+    @include phones {
+        left: 5%;
+    }
 }
 
 .burger__calories-caption {

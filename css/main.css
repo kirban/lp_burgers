@@ -1107,25 +1107,26 @@ ul {
 
 .burger__arrow {
   height: 100%;
-  position: absolute;
-  top: 50%;
-  bottom: 0;
-  right: 0;
-  left: 0;
   width: 1.875rem;
   height: 0.9375rem; }
 
 .arrow__btn--left {
-  left: 1%;
-  -webkit-transform: rotate(90deg);
-  -ms-transform: rotate(90deg);
-  transform: rotate(90deg); }
-
-.arrow__btn--right {
-  right: 1%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
   -webkit-transform: rotate(-90deg);
   -ms-transform: rotate(-90deg);
   transform: rotate(-90deg); }
+
+.arrow__btn--right {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  -webkit-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg); }
 
 .burger__content {
   display: -webkit-box;
@@ -1138,14 +1139,42 @@ ul {
   -webkit-box-align: end;
   -ms-flex-align: end;
   align-items: flex-end; }
+  @media screen and (max-width: 768px) {
+    .burger__content {
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+      flex-direction: column;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      text-align: center; } }
+
+.burger__img {
+  max-width: 99%; }
+  @media screen and (max-width: 768px) {
+    .burger__img {
+      max-width: 70%; } }
+  @media screen and (max-width: 480px) {
+    .burger__img {
+      max-width: 60%; } }
 
 .burger__text {
   width: 50%; }
+  @media screen and (max-width: 375px) {
+    .burger__text {
+      width: 90%; } }
 
 .section__title--burger {
   line-height: 4rem;
   margin-bottom: 1.25rem;
   color: #ffffff; }
+  @media screen and (max-width: 375px) {
+    .section__title--burger {
+      font-size: 2.25rem; } }
 
 .burger__desc {
   color: #ffffff;
@@ -1171,6 +1200,9 @@ ul {
 .burger__composition {
   position: absolute;
   top: 5.625rem; }
+  @media screen and (max-width: 480px) {
+    .burger__composition {
+      left: 5%; } }
 
 .composition__table {
   opacity: 0;
@@ -1262,6 +1294,9 @@ ul {
   -ms-flex-align: center;
   align-items: center;
   opacity: 0.5; }
+  @media screen and (max-width: 480px) {
+    .burger__calories {
+      left: 5%; } }
 
 .burger__calories-caption {
   font-family: gagalin;
