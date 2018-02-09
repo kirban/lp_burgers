@@ -64,7 +64,9 @@
     content: ' ';
     @include circle(5px, #fff);
     margin: 0 rem(12px);
-    margin-bottom: rem(16px);
+    @include tablets {
+      margin-bottom: rem(16px);
+    }
   }
   &:last-child:after {
     display: none;

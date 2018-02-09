@@ -272,8 +272,10 @@ ul {
     height: 5px;
     border-radius: 2.5px;
     background-color: #fff;
-    margin: 0 0.75rem;
-    margin-bottom: 1rem; }
+    margin: 0 0.75rem; }
+    @media screen and (max-width: 768px) {
+      .nav__item:after {
+        margin-bottom: 1rem; } }
   .nav__item:last-child:after {
     display: none; }
 
