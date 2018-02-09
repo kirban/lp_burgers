@@ -218,12 +218,31 @@ ul {
   -webkit-box-flex: 1;
   -ms-flex-positive: 1;
   flex-grow: 1; }
+  @media screen and (max-width: 768px) {
+    .header__logo {
+      z-index: 600; } }
 
 .nav {
   margin-right: 0.9375rem; }
   .nav__list {
     margin: 0;
     padding: 0; }
+    @media screen and (max-width: 768px) {
+      .nav__list {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        height: 30rem;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto; } }
   @media screen and (max-width: 768px) {
     .nav {
       display: none; } }
@@ -234,7 +253,17 @@ ul {
   display: inline-flex;
   -webkit-box-align: center;
   -ms-flex-align: center;
-  align-items: center; }
+  align-items: center;
+  z-index: 800; }
+  @media screen and (max-width: 768px) {
+    .nav__item {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+      flex-direction: column; } }
   .nav__item:after {
     display: inline-block;
     vertical-align: middle;
@@ -243,7 +272,8 @@ ul {
     height: 5px;
     border-radius: 2.5px;
     background-color: #fff;
-    margin: 0 0.75rem; }
+    margin: 0 0.75rem;
+    margin-bottom: 1rem; }
   .nav__item:last-child:after {
     display: none; }
 
@@ -261,6 +291,10 @@ ul {
   transition: .5s; }
   .nav__link:hover {
     text-decoration: underline; }
+  @media screen and (max-width: 768px) {
+    .nav__link {
+      font-size: 1.5rem;
+      margin-bottom: 1rem; } }
 
 .hamburger-menu {
   margin-left: 1.875rem;
@@ -269,6 +303,10 @@ ul {
   display: none;
   background: url(../img/icon/hamburger-menu.svg) 50% 50% no-repeat;
   opacity: 1; }
+  .hamburger-menu--active {
+    width: 1.5rem;
+    height: 1.5rem;
+    background: url(../icons/cross.png) 50% 50% no-repeat; }
   @media screen and (max-width: 768px) {
     .hamburger-menu {
       display: -webkit-box;
@@ -361,6 +399,51 @@ ul {
   width: 1.8125rem;
   height: 0.875rem;
   fill: #ffff; }
+
+.overlay {
+  display: none;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100vh;
+  width: 100vw; }
+
+.overlay--open {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  z-index: 300;
+  background-color: rgba(2, 2, 2, 0.95); }
+  .overlay--open nav {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex; }
+    .overlay--open nav .nav__list {
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+      flex-direction: column;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center; }
+
+.body-active-menu {
+  overflow: hidden; }
 
 .best {
   background-image: url("../img/bg2.png");

@@ -21,6 +21,9 @@
 
 .header__logo {
   flex-grow: 1;
+  @include tablets {
+    z-index: 600;
+  }
 }
 
 .nav {
@@ -28,6 +31,17 @@
   &__list {
     margin: 0;
     padding: 0;
+    @include tablets{
+      display: flex;
+      flex-direction: column;
+      height: 30rem;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin: auto;
+    }
   }
 
   @include tablets {
@@ -38,12 +52,19 @@
 .nav__item {
   display: inline-flex;
   align-items: center;
+  z-index: 800;
+  @include tablets {
+    display: flex;
+    flex-direction: column;
+  }
+
   &:after {
     display: inline-block;
     vertical-align: middle;
     content: ' ';
     @include circle(5px, #fff);
     margin: 0 rem(12px);
+    margin-bottom: rem(16px);
   }
   &:last-child:after {
     display: none;
@@ -63,6 +84,10 @@
   &:hover {
     text-decoration: underline;
   }
+  @include tablets {
+    font-size: 1.5rem;
+    margin-bottom: rem(16px);
+  }
 }
 
 .hamburger-menu {
@@ -73,11 +98,19 @@
   background: url(../img/icon/hamburger-menu.svg) 50% 50% no-repeat;
   opacity: 1;
 
+  &--active{
+    width: rem(24px);
+    height: rem(24px);
+    background: url(../icons/cross.png) 50% 50% no-repeat;
+  }
+  
   @include tablets {
     display: flex;
     z-index: 400;
     margin-right: rem(10px);    
   }
+
+
 }
 
 .hero__content {
@@ -156,4 +189,36 @@
   width: rem(29px);
   height: rem(14px);
   fill: #ffff;
+}
+
+.overlay {
+  display: none;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100vh;
+  width: 100vw;
+}
+
+.overlay--open {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;  
+  z-index: 300;
+  background-color: rgba(2,2,2,0.95);
+  & nav{
+    display: flex;
+    & .nav__list{
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}
+
+.body-active-menu {
+  overflow: hidden;
 }
