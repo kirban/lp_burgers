@@ -139,13 +139,12 @@ $(function() {
     var scrollToSection = function(direction) {
         var section = defineSections(sections);
         
-        if (direction == 'up' && section.nextSection.next().length) { /*вниз*/
-            
-            performTransition(section.nextSection.index());
+        if (direction == 'up' && section.nextSection.next().length) { /*вниз*/            
+            performTransition(section.nextSection.index()+1);                       // THERE WAS AN ERROR WITH +1
         } 
         
         if (direction == 'down' && section.prevSection.prev().length) { /*вверх*/   
-            performTransition(section.prevSection.index());
+            performTransition(section.prevSection.index()+1);                       // THERE WAS AN ERROR WITH +1
         }
 
     }
