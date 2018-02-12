@@ -48,6 +48,7 @@
 .maincontent {
   height: 100%;
   min-height: rem(650px);
+  transition: transform 0.5s;
 }
 
 .container {

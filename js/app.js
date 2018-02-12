@@ -105,15 +105,14 @@ $(function() {
       
         if(!inScroll) {
             inScroll = true;
-
-            var sectionEq = sectionEq - 1; /*Index starts counting from 0, eq from 1*/ //MB CHANGE ON +1
+            //var sectionEq = sectionEq; /*Index starts counting from 0, eq from 1*/ //MB CHANGE ON +1
             var position = (sectionEq * -100) + '%';
             
             visible.css({
                 'transform' : 'translateY(' + position + ')',
                 '-webkit-transform' : 'translateY(' + position + ')'
             })
-
+            console.log(sections)
             sections.eq(sectionEq).addClass('active')
             .siblings().removeClass('active');
 
@@ -139,24 +138,22 @@ $(function() {
     var scrollToSection = function(direction) {
         var section = defineSections(sections);
         
-        if (direction == 'up' && section.nextSection.next().length) { /*вниз*/            
-            performTransition(section.nextSection.index()+1);                       // THERE WAS AN ERROR WITH +1
+        if (direction == 'up' && section.nextSection.length) { /*вниз*/            
+            performTransition(section.nextSection.index());                       // THERE WAS AN ERROR WITH +1
         } 
         
-        if (direction == 'down' && section.prevSection.prev().length) { /*вверх*/   
-            performTransition(section.prevSection.index()+1);                       // THERE WAS AN ERROR WITH +1
+        if (direction == 'down' && section.prevSection.length) { /*вверх*/   
+            performTransition(section.prevSection.index());                       // THERE WAS AN ERROR WITH +1
         }
 
     }
-
 
 
     $('.wrapper').on({
         'wheel': function(e) {
             var deltaY = e.originalEvent.deltaY,
             direction = "";
-            
-            var direction = deltaY > 0 ? direction = 'up': direction = 'down';
+            direction = deltaY > 0 ? 'up': 'down';
 
             scrollToSection(direction);
         },
@@ -173,7 +170,7 @@ $(function() {
         
         switch (e.keyCode) {
             case 38: /*вверх*/
-                if (section.prevSection.prev().length) {
+                if (section.prevSection.length) {
                     performTransition(section.prevSection.index());
                 }
                 break;
@@ -199,7 +196,7 @@ $(function() {
         bulletTarget = elem.closest(bullets),            
         bulletEq = bulletTarget.index();
 
-        performTransition(bulletEq + 1); /*Index starts counting from 0, eq from 1*/ 
+        performTransition(bulletEq); /*Index starts counting from 0, eq from 1*/ 
 
     })
 
@@ -210,7 +207,7 @@ $(function() {
         var elem = $(e.target),
         elemId = elem.attr('href'),
         sectionEq = parseInt(sections.filter(elemId).index());
-        performTransition(sectionEq + 1);  
+        performTransition(sectionEq);  
         
     })
     
