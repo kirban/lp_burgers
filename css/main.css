@@ -78,6 +78,7 @@ ul {
   margin: 0; }
 
 .btn {
+  outline: none;
   display: inline-block;
   font-family: ubuntu, Verdana, Arial, sans-serif;
   font-size: 0.8125rem;
@@ -94,6 +95,9 @@ ul {
   -webkit-transition: background-color 0.5s;
   -o-transition: background-color 0.5s;
   transition: background-color 0.5s; }
+
+button {
+  outline: none; }
 
 .wrapper {
   overflow: hidden;
@@ -1209,22 +1213,26 @@ ul {
   background: -webkit-gradient(linear, left bottom, left top, from(#f9b33b), color-stop(#eb8c38), to(#f9b33b));
   background: -webkit-linear-gradient(bottom, #f9b33b, #eb8c38, #f9b33b);
   background: -o-linear-gradient(bottom, #f9b33b, #eb8c38, #f9b33b);
-  background: linear-gradient(0deg, #f9b33b, #eb8c38, #f9b33b); }
-
-.burger__container {
-  padding: 5.5625rem 0rem;
+  background: linear-gradient(0deg, #f9b33b, #eb8c38, #f9b33b);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
+  -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-  -ms-flex-direction: row;
-  flex-direction: row; }
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center; }
+
+.burger__contents, .owl-stage-outer, .owl-stage, .owl-item, .burger__item {
+  height: 100%; }
 
 .burger__arrow {
-  height: 100%;
-  width: 1.875rem;
-  height: 0.9375rem; }
+  width: 1.875rem; }
 
 .arrow__btn--left {
   position: absolute;
@@ -1315,7 +1323,8 @@ ul {
 
 .burger__composition {
   position: absolute;
-  top: 5.625rem; }
+  top: 7%;
+  left: 12%; }
   @media screen and (max-width: 480px) {
     .burger__composition {
       left: 5%; } }
@@ -1344,7 +1353,6 @@ ul {
 .composition__menu {
   background-color: rgba(227, 80, 40, 0.4);
   width: 5.625rem;
-  height: 5.625rem;
   border-radius: 0.3125rem;
   padding: 0.625rem;
   display: -webkit-box;
@@ -1393,7 +1401,8 @@ ul {
   background: url("../icons/kkal.svg") 50% 0% no-repeat;
   background-size: contain;
   position: absolute;
-  bottom: 5.625rem;
+  bottom: 7%;
+  left: 13%;
   width: 3.75rem;
   height: 5rem;
   display: -webkit-box;

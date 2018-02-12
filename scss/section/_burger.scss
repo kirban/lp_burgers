@@ -1,17 +1,17 @@
 .burger {
     background: linear-gradient(0deg,#f9b33b,#eb8c38,#f9b33b);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-.burger__container {
-    padding: rem(89px) rem(0px);
-    display: flex;
-    flex-direction: row;
+.burger__contents,.owl-stage-outer,.owl-stage,.owl-item,.burger__item{
+    height: 100%;
 }
 
 .burger__arrow {
-    height: 100%;
     width: 1.875rem;
-    height: 0.9375rem;
 }
 
 .arrow__btn--left {
@@ -93,7 +93,8 @@
 
 .burger__composition{
     position: absolute;
-    top: rem(90px);
+    top: 7%;
+    left: 12%;
     @include phones {
         left: 5%;
     }
@@ -120,7 +121,7 @@
 .composition__menu {
     background-color: rgba(227, 80, 40, 0.4);
     width: rem(90px);
-    height: rem(90px);
+    // height: rem(90px);
     border-radius: rem(5px);
     padding: rem(10px);
     display: flex;
@@ -167,7 +168,8 @@
     background: url("../icons/kkal.svg") 50% 0% no-repeat;
     background-size: contain;
     position: absolute;
-    bottom: rem(90px);
+    bottom: 7%;
+    left: 13%;
     width: rem(60px);
     height: rem(80px);
     display: flex;

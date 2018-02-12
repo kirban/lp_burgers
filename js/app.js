@@ -112,7 +112,6 @@ $(function() {
                 'transform' : 'translateY(' + position + ')',
                 '-webkit-transform' : 'translateY(' + position + ')'
             })
-            console.log(sections)
             sections.eq(sectionEq).addClass('active')
             .siblings().removeClass('active');
 
@@ -233,3 +232,26 @@ $(function() {
     }
     
 })
+
+
+let owlCarousel = () => {
+    const burgerCarousel = $(".burger__contents").owlCarousel({
+      items: 1,
+      nav: true,
+      navContainer: $(".slider__controls"),
+      navText: ["", ""],
+      loop: true
+    });
+
+    $(".arrow__btn--left").on("click", e => {
+      e.preventDefault();
+      burgerCarousel.trigger("next.owl.carousel");
+    });
+
+    $(".arrow__btn--right").on("click", e => {
+      e.preventDefault();
+      burgerCarousel.trigger("prev.owl.carousel");
+    });
+  };
+
+  owlCarousel();
