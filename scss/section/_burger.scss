@@ -10,6 +10,15 @@
     height: 100%;
 }
 
+.burger__content {
+    @include tablets{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
 .burger__arrow {
     width: 1.875rem;
 }
@@ -45,6 +54,7 @@
 .burger__img {
     max-width: 99%;
     @include tablets {
+        display: inline-flex !important;
         max-width: 70%;
     }
     @include phones {
@@ -63,6 +73,10 @@
     line-height: rem(64px);
     margin-bottom: rem(20px);
     color: $white;
+    @include phones {
+        line-height: rem(40px);
+        font-size: rem(40px);
+    }
     @include phones-small {
      font-size: rem(36px);   
     }

@@ -709,7 +709,6 @@ button {
   font-family: gagalin, cursive;
   font-weight: normal;
   text-transform: uppercase;
-  margin: 1rem 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -746,38 +745,42 @@ button {
   height: 0;
   overflow: hidden; }
 
-.team__item.visible .team__name {
-  color: #f8b43a; }
-
-.team__item.visible .team__name::before {
-  -ms-flex-item-align: start;
-  align-self: flex-start;
-  -webkit-transform: rotate(180deg);
-  -ms-transform: rotate(180deg);
-  transform: rotate(180deg);
-  -webkit-transition: color 0.3s 0.5s;
-  -o-transition: color 0.3s 0.5s;
-  transition: color 0.3s 0.5s; }
-
-.team__item.visible .team__info {
-  height: 100%;
-  overflow: initial; }
-  @media screen and (max-width: 768px) {
-    .team__item.visible .team__info {
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: flex;
-      -webkit-box-orient: vertical;
-      -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-      flex-direction: column;
-      -webkit-box-pack: center;
-      -ms-flex-pack: center;
-      justify-content: center;
-      -webkit-box-align: center;
-      -ms-flex-align: center;
-      align-items: center;
-      padding-bottom: 0.9375rem; } }
+.team__item {
+  margin: 1.25rem 0;
+  -webkit-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s; }
+  .team__item.visible .team__name {
+    margin-bottom: 1rem;
+    color: #f8b43a; }
+  .team__item.visible .team__name::before {
+    -ms-flex-item-align: start;
+    align-self: flex-start;
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg);
+    -webkit-transition: color 0.3s 0.5s;
+    -o-transition: color 0.3s 0.5s;
+    transition: color 0.3s 0.5s; }
+  .team__item.visible .team__info {
+    height: 100%;
+    overflow: initial; }
+    @media screen and (max-width: 768px) {
+      .team__item.visible .team__info {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        padding-bottom: 0.9375rem; } }
 
 .team__photo {
   display: inline-block;
@@ -786,6 +789,14 @@ button {
   overflow: hidden;
   position: relative;
   margin: 0 1.5625rem; }
+  @media screen and (max-width: 768px) {
+    .team__photo {
+      width: 6.875rem;
+      height: 6.875rem; } }
+  @media screen and (max-width: 480px) {
+    .team__photo {
+      width: 7.5rem;
+      height: 7.8125rem; } }
 
 .team__text {
   display: inline-block;
@@ -1231,6 +1242,22 @@ button {
 .burger__contents, .owl-stage-outer, .owl-stage, .owl-item, .burger__item {
   height: 100%; }
 
+@media screen and (max-width: 768px) {
+  .burger__content {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center; } }
+
 .burger__arrow {
   width: 1.875rem; }
 
@@ -1281,6 +1308,9 @@ button {
   max-width: 99%; }
   @media screen and (max-width: 768px) {
     .burger__img {
+      display: -webkit-inline-box !important;
+      display: -ms-inline-flexbox !important;
+      display: inline-flex !important;
       max-width: 70%; } }
   @media screen and (max-width: 480px) {
     .burger__img {
@@ -1296,6 +1326,10 @@ button {
   line-height: 4rem;
   margin-bottom: 1.25rem;
   color: #ffffff; }
+  @media screen and (max-width: 480px) {
+    .section__title--burger {
+      line-height: 2.5rem;
+      font-size: 2.5rem; } }
   @media screen and (max-width: 375px) {
     .section__title--burger {
       font-size: 2.25rem; } }

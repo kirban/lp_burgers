@@ -42,8 +42,7 @@
 .team__name {
     font-family: gagalin, cursive;
     font-weight: normal;
-    text-transform: uppercase;
-    margin: rem(16px) 0;
+    text-transform: uppercase;   
     display: flex;
     align-items: center;
     transition: color 0.5s;
@@ -75,27 +74,34 @@
     overflow: hidden;
 }
 
-.team__item.visible{
-    & .team__name{
-        color: $yellow;
-    }
-    & .team__name::before {      
-        align-self: flex-start;  
-        transform: rotate(180deg);
-        transition: color 0.3s 0.5s;
-    }
-    & .team__info {
-        height: 100%;
-        overflow: initial;
-        @include tablets {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding-bottom: rem(15px);
+.team__item {
+    margin: rem(20px) 0;
+    transition: all 0.5s;
+    &.visible{
+        & .team__name{
+            margin-bottom: rem(16px);
+            color: $yellow;
+        }
+        & .team__name::before {      
+            align-self: flex-start;  
+            transform: rotate(180deg);
+            transition: color 0.3s 0.5s;
+        }
+        & .team__info {
+            height: 100%;
+            overflow: initial;
+            @include tablets {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                padding-bottom: rem(15px);
+            }
         }
     }
 }
+
+
 
 .team__photo{
     display: inline-block;
@@ -104,6 +110,15 @@
     overflow: hidden;
     position: relative;
     margin: 0 rem(25px);
+
+    @include tablets {
+        width: rem(110px);
+        height: rem(110px);
+    }
+    @include phones {
+        width: rem(120px);
+        height: rem(125px);
+    }
 }
 
 .team__text {
