@@ -1259,7 +1259,9 @@ button {
     align-items: center; } }
 
 .burger__arrow {
-  width: 1.875rem; }
+  width: 2.5625rem;
+  height: 2.5625rem;
+  z-index: 8000; }
 
 .arrow__btn--left {
   position: absolute;

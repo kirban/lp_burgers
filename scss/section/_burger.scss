@@ -20,7 +20,9 @@
 }
 
 .burger__arrow {
-    width: 1.875rem;
+    width: rem(41px);
+    height: rem(41px);
+    z-index: 8000;
 }
 
 .arrow__btn--left {
