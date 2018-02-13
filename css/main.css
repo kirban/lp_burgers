@@ -919,8 +919,9 @@ button {
     -webkit-transition: color 0.5s;
     -o-transition: color 0.5s;
     transition: color 0.5s; }
-  .active .menu__item-title {
-    color: #f8b43a; }
+
+.menu__item.active .menu__item-title {
+  color: #f8b43a; }
 
 .meat__block {
   background: url("../img/menu/photo-1468071174046-657d9d351a40.png");

@@ -99,9 +99,9 @@
         color: $yellow;
         transition: color 0.5s;
     }
-    .active & {
-        color: $yellow;
-    }
+}
+.menu__item.active .menu__item-title{
+    color: $yellow;
 }
 
 .meat__block {
