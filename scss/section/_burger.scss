@@ -20,23 +20,27 @@
 }
 
 .burger__arrow {
-    width: rem(41px);
-    height: rem(41px);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;    
     z-index: 8000;
 }
 
-.arrow__btn--left {
+.arrow__btn {
+    width: rem(41px);
+    height: rem(41px);
     position: absolute;
-    top: 0;
-    bottom: 0;
+    top: 50%;
+}
+
+.arrow__btn--left {
     right: 0;
     transform: rotate(-90deg);
 }
 
-.arrow__btn--right {
-    position: absolute;
-    top: 0;
-    bottom: 0;
+.arrow__btn--right {    
     left: 0;
     transform: rotate(90deg);
 }

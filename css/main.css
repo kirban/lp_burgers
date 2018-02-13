@@ -1259,23 +1259,32 @@ button {
     align-items: center; } }
 
 .burger__arrow {
-  width: 2.5625rem;
-  height: 2.5625rem;
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
   z-index: 8000; }
 
-.arrow__btn--left {
+.arrow__btn {
+  width: 2.5625rem;
+  height: 2.5625rem;
   position: absolute;
-  top: 0;
-  bottom: 0;
+  top: 50%; }
+
+.arrow__btn--left {
   right: 0;
   -webkit-transform: rotate(-90deg);
   -ms-transform: rotate(-90deg);
   transform: rotate(-90deg); }
 
 .arrow__btn--right {
-  position: absolute;
-  top: 0;
-  bottom: 0;
   left: 0;
   -webkit-transform: rotate(90deg);
   -ms-transform: rotate(90deg);
