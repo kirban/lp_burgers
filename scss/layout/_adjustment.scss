@@ -1,0 +1,93 @@
+// общие стили для всей страницы
+.wrapper {
+  overflow: hidden;
+  width: 100%; 
+  height: 100%;
+}
+
+.nav__points {
+  position: fixed;
+  top: rem(90px);
+  right: 3%;
+
+  &-list--item {
+    cursor: pointer;
+    display: block;
+    border: rem(1px) solid transparent;
+    @include circle(rem(16px), transparent);
+    position: relative;
+    margin-bottom: rem(5px);
+
+    &.point-active {
+      border-color: #fff;
+    }
+  }
+
+}
+
+.nav__radio-fake {
+  display: block;
+  @include circle(rem(6px), $white);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: color 0.5s;        
+    &:hover {
+      background-color: $yellow;
+    }
+
+}
+
+.nav__radio-elem {
+  position: absolute;
+  top: 0px;
+  right: rem(-9999px);
+}
+
+.maincontent {
+  height: 100%;
+  min-height: rem(650px);
+  transition: transform 0.5s;
+}
+
+.container {
+  height: 100%;
+  max-width: rem(940px);
+  min-width: rem(300px);
+  width: 95%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.section {
+  height: 100%;
+  background-color: rgba(0,0,0,0.31);
+  // min-width: rem(940px);
+  min-height: rem(650px);
+  position: relative;
+  overflow: hidden;
+  @include phones {
+    min-height: initial;
+  }
+}
+
+.order-link {
+  min-width: rem(98px);
+  padding: rem(10px) rem(17px);
+  border-radius: rem(5px);
+  background-color: $orange;
+  color: #fff;
+  text-decoration: none;
+  font-size: rem(13px);
+  font-weight: 500;
+  line-height: 1.42;
+  text-transform: uppercase;
+  transition: .5s;
+  &:hover {
+    background-color: darken($orange, 7%);
+  }
+}
