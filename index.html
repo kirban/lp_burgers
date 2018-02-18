@@ -828,12 +828,12 @@
                             </label>
                             <div class="form__radio">
                                 <label class="form__radio-type">
-                                    <input type="radio" id="need-change" name="payment" class="form__radio-btn" value="Потребуется сдача">
+                                    <input type="radio" name="payment" class="form__radio-btn" value="Потребуется сдача">
                                     <span class="form__radio-fake"></span>
                                     <span class="form__radio-name">Потребуется сдача</span>
                                 </label>
                                 <label class="form__radio-type">
-                                    <input type="radio" id="paycard" name="payment" class="form__radio-btn" value="Оплата по карте">
+                                    <input type="radio" name="payment" class="form__radio-btn" value="Оплата по карте">
                                     <span class="form__radio-fake"></span>
                                     <span class="form__radio-name">Оплата по карте</span>
                                 </label>
@@ -849,6 +849,14 @@
                             </div>
                     </div>
                 </form>
+                <div class="popup-status popup" id="success">
+                    Успех
+                    <button class="modal__btn">закрыть</button>
+                </div>
+                <div class="popup-status popup" id="error">
+                    Ошибка
+                    <button class="modal__btn">закрыть</button>
+                </div>
             </div>
         </section>
         <section class="section map" id="map-section">

@@ -13,13 +13,11 @@ $houseNum = safeEnter($_POST['houseNum']);
 $corp = safeEnter($_POST['corp']);
 $flat = safeEnter($_POST['flat']);
 $floor = safeEnter($_POST['floor']);
-$comment = safeEnter($_G_POSTET['comment']);
+$comment = safeEnter($_POST['comment']);
 
-$need_change = safeEnter($_POST['need-change']);
-$need_change = isset($need_change) ? 'Нужна' : 'Не нужна';
-$paycard = safeEnter($_POST['paycard']);
-$paycard = isset($paycard) ? 'Картой' : 'Наличкой';
-$dontcall = safeEnter($_POST['dontcall']); // 1 или null
+$paymethod = $_POST['payment'];
+
+$dontcall = safeEnter($_POST['callback']); // 1 или null
 $dontcall = isset($dontcall) ? 1 : 0;   // 1 - не беспокоить, 0 - не задано
 
 $message = '
@@ -34,16 +32,16 @@ $message = '
 <body>
     <h2>Order</h2>
     <ul>
-        <li>' . $name . '</li>
-        <li>'. $phone .'</li>
-        <li>'. $street .'</li>
-        <li>'. $houseNum .'</li>
-        <li>'. $corp .'</li>
-        <li>'. $flat .'</li>
-        <li>'. $floor .'</li>
-        <li>'. $comment .'</li>
-        <li>Need change?>>'. $need_change .' Pay by card>>'. $paycard .'</li>
-        <li>'. $dontcall .'</li>
+        <li>Имя>>' . $name . '</li>
+        <li>Номер>>'. $phone .'</li>
+        <li>Улица>>'. $street .'</li>
+        <li>Дом>>'. $houseNum .'</li>
+        <li>Корпус>>'. $corp .'</li>
+        <li>Квартира>>'. $flat .'</li>
+        <li>Этаж>>'. $floor .'</li>
+        <li>Комментарий>>'. $comment .'</li>
+        <li>Cпособ оплаты>>'. $paymethod .'</li>
+        <li>Не звоните мне>>'. ($dontcall == 1) ? "Да":"Нет" .'</li>
     </ul>
 </body>
 </html>';
@@ -52,10 +50,15 @@ $headers = "From: Site Admin <admin@example.com>\r\n".
             "MIME-Version: 1.0" . "\r\n" .
             "Content-type: text/html; charset=UTF-8" . "\r\n";
 
-$mail = mail('kirillik95@yandex.ru', 'Zakaz', $message, $headers);
+$mail = mail("kirillik95@yandex.ru", "Заказ", $mail_message, $headers);
+
+$data = [];
 
 if ($mail) {
-    echo 'done';
+    $data['status'] = "OK";
+    $data['mes'] = "Order successfully sent!";
 }else{
-    echo'error';
+    $data['status'] = "ERROR";
+    $data['mes'] = "Server ERROR!!";
 }
+echo json_encode($data);

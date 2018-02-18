@@ -1047,6 +1047,11 @@ section.map {
   background: url("../img/order.png") center center no-repeat;
   background-size: cover; }
 
+.popup-status {
+  display: none; }
+  .popup-status.active {
+    display: block; }
+
 @media screen and (max-width: 480px) {
   .order__title {
     font-size: 2.375rem; } }

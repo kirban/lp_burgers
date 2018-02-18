@@ -308,3 +308,57 @@ let owlCarousel = () => {
     
     myMap.behaviors.disable('scrollZoom');
   }
+
+  // form ajax
+
+var ajaxForm = function (form) {
+    var url = form.attr('action'),
+        data = form.serialize();
+    return $.ajax({
+        type: 'POST',
+        url: url,
+        data: data,
+        dataType: 'JSON'
+    });
+}
+var submitForm = function(e){
+    e.preventDefault();
+    var form = $(e.target);
+    var request = ajaxForm(form);
+    request.done(function(msg){
+        const popup = msg.status ? '#success' : '#error';
+        $status = $(popup)
+
+        $.fancybox.open(
+            $status
+            ,{
+                type: 'inline',
+                maxWidth: 350,
+                fitToView: false,
+                padding: 0,
+                afterClose(){
+                    form.trigger('reset');
+                }
+            });
+
+    });
+
+    request.fail(function(jqXHR, textStatus) {
+        $.fancybox.open(
+            $('#error').html("На сервере произошла ошибка :( >> " + textStatus)
+            ,{
+                type: 'inline',
+                maxWidth: 350,
+                fitToView: false,
+                padding: 0
+            });
+    });
+
+}
+
+$(".status-popup__close").on("click", e => {
+    e.preventDefault();
+    $.fancybox.close();
+});
+
+$('#order-form').on('submit', submitForm)

@@ -3,19 +3,17 @@
     background-size: cover;
   }
 
-.order__container {
-    // display: flex;
-    // // flex-direction: column;
-    // // justify-content: center;
+.popup-status{
+    display: none;
+    &.active {
+        display: block;
+    }
 }
 
 .order__title {
     @include phones {
         font-size: rem(38px);
     }
-    // @media screen and (max-width:659px){
-    //     text-align: center;
-    // }
 }
 
 .form {
