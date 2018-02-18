@@ -298,7 +298,7 @@ let owlCarousel = () => {
         hintContent: obj.balloonContent
     }, {
         iconLayout: 'default#image',
-        iconImageHref: '../img/icon/map-marker.svg',
+        iconImageHref: './img/icon/map-marker.svg',
         iconImageSize: [46, 57],
         iconImageOffset: [-15, -50]
         });
