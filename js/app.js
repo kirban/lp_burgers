@@ -219,7 +219,7 @@ $(function() {
 
     $('.header__btn, .btn--burger').on('click', function(e) {
         e.preventDefault();
-        performTransition(7); /*Index starts counting from 0, eq from 1. First link is second screen*/ 
+        performTransition(6); /*Index starts counting from 0, eq from 1. First link is second screen*/ 
 
     });
 
@@ -255,3 +255,56 @@ let owlCarousel = () => {
   };
 
   owlCarousel();
+
+  ymaps.ready(init);
+  var myMap,
+  myPlacemark,
+        myPlacemarks = [{
+            latitude: 59.915038,
+            longitude: 30.486096,
+            hintContent: 'Mr.Burger на Товарищеском', 
+            balloonContent: 'Товарищеский проспект, 20/27'
+        },
+        {
+            latitude: 59.94708381,
+            longitude: 30.38481688,
+            hintContent: 'Mr.Burger на Тверской', 
+            balloonContent: 'Тверская улица, 16'
+        },
+        {
+            latitude: 59.891295,
+            longitude: 30.316907,
+            hintContent: 'Mr.Burger на Московском', 
+            balloonContent: 'Московский проспект, 103к2'
+        },
+        {
+            latitude: 59.973999,
+            longitude: 30.311091,
+            hintContent: 'Mr.Burger на Чапыгина', 
+            balloonContent: 'улица Чапыгина, 13А'
+        }];
+
+
+  function init(){     
+      myMap = new ymaps.Map("map", {
+          center: [59.90078846, 30.35164518],
+          zoom: 11,
+          controls: ["zoomControl"],
+          behaviours: ["drag"]
+      });
+      myPlacemarks.forEach(function(obj) {
+        myPlacemark = new ymaps.Placemark([obj.latitude, obj.longitude], { 
+        hintContent: obj.hintContent, 
+        hintContent: obj.balloonContent
+    }, {
+        iconLayout: 'default#image',
+        iconImageHref: '../img/icon/map-marker.svg',
+        iconImageSize: [46, 57],
+        iconImageOffset: [-15, -50]
+        });
+
+        myMap.geoObjects.add(myPlacemark);
+    });
+    
+    myMap.behaviors.disable('scrollZoom');
+  }
