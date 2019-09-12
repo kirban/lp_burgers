@@ -1,0 +1,81 @@
+.best {
+  background-image: url('../img/bg2.png');
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.section__title--black {
+  color: #2f3234;
+  padding: 0;
+  margin-bottom: rem(28px);
+  @include phones {
+    font-size: rem(62px);
+  }
+}
+
+.features__list {
+  text-align: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  @include phones {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.features__item {
+  @include phones {
+    display: flex;
+    flex-direction: row;
+    text-align: right;
+  }
+}
+
+.features__img {
+  min-height: rem(90px);
+  min-width: rem(90px);
+  margin-bottom: rem(20px);
+}
+
+.feature__icon {
+  height: rem(90px);
+  width: rem(90px);
+}
+
+.feature__icon--meat {
+  fill: #e25028;
+}
+
+.feature__icon--hand {
+  fill: #facb78;
+}
+
+.feature__icon--natural {
+  fill: #8ac03e;
+}
+
+.features__description {
+  @include phones {
+    align-items: flex-end;
+  }
+}
+
+.features__title {
+  font-family: Lifehack;
+  font-weight: 500;
+  font-size: rem(24px);
+  line-height: rem(34px);
+  margin-bottom: rem(15px);
+}
+
+.features__text {
+  font-weight: 300;
+  font-size: rem(16px);
+}
