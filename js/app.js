@@ -1,0 +1,364 @@
+//tablets or phones menu
+let menu = (function(){
+
+    let button = document.querySelector("#toggle");
+    let menu = document.querySelector("#overlay");
+    let body = document.body;
+
+    let __toggleMenu = function(e){
+        button.classList.toggle('hamburger-menu--active');
+        menu.classList.toggle('overlay--open');
+        body.classList.toggle('body-active-menu');
+    }
+
+    let addListeners = function() {
+        button.addEventListener('click', __toggleMenu);
+    }
+
+    return {
+        init: addListeners
+    };
+})({
+    button: '#toggle',
+    menu: '#overlay'
+})
+
+menu.init();
+
+//team accordeon
+$(document).ready(function () {
+    $('.team__name').click(function (e) { 
+        e.preventDefault();
+        var $this = $(this), 
+            item = $this.closest('.team__item'),
+            list = $this.closest('#team__menu'),
+            items = list.find('.team__item'),
+            content = item.find('.team__desc-wrapper'),
+            otherContent = list.find('.team__desc-wrapper'),
+            duration = 300;
+        
+        if (!item.hasClass('visible')){
+            items.removeClass('visible');
+            content.slideDown(duration);
+            item.addClass('visible');     
+        } 
+        else {            
+            content.slideUp(duration);
+            item.removeClass('visible');
+        }
+    });
+});
+
+//menu accordeon
+
+$(function() {
+    $('.menu__item-title').on('click', function (e) {
+
+        e.preventDefault();
+        var elem = $(e.target),
+        item = elem.closest('.menu__item'),
+        content = item.find('.menu__item-wrapper'),
+        otherItems = item.siblings(),
+        otherItemsContent = otherItems.find('.menu__item-wrapper'),
+        itemsWidth = $('.menu__item').length * $('.menu__item-type').width();
+
+        $(window).width() < 769 
+        ? openWidth = $(window).width() - itemsWidth 
+        : openWidth = $(window).width()*0.65 - itemsWidth
+        
+        if (!item.hasClass('active')) {
+            otherItems.removeClass('active'),
+            otherItemsContent.css('width', '0'),
+            item.addClass('active'),
+            content.css('width', openWidth)
+        } else {
+            item.removeClass('active'),
+            content.css('width', '0')
+        }
+
+    })
+})
+
+//modal window
+$(function() {
+    $("[data-fancybox]").fancybox({
+        smallBtn: false,
+        toolbar: false
+    });
+        
+    $('.popup__close').on('click', function(e) {
+        e.preventDefault();
+        $.fancybox.close()
+    })
+})
+
+//one page scroll
+$(function() {
+    var sections = $('.section'),
+        visible = $('.maincontent'),
+        inScroll = false;
+
+        const md = new MobileDetect(window.navigator.userAgent),
+        isMobile = md.mobile();
+
+    var performTransition = function (sectionEq) {
+      
+        if(!inScroll) {
+            inScroll = true;
+            //var sectionEq = sectionEq; /*Index starts counting from 0, eq from 1*/ //MB CHANGE ON +1
+            var position = (sectionEq * -100) + '%';
+            
+            visible.css({
+                'transform' : 'translateY(' + position + ')',
+                '-webkit-transform' : 'translateY(' + position + ')'
+            })
+            sections.eq(sectionEq).addClass('active')
+            .siblings().removeClass('active');
+
+            setTimeout(function() {
+                inScroll = false;
+                $('.nav__points-list--item').eq(sectionEq).addClass('point-active')
+                .siblings().removeClass('point-active');
+            }, 300)
+
+        }
+            
+    }
+
+    var defineSections = function(sections) {
+        var activeSection = sections.filter('.active');
+        return {
+            activeSection : activeSection,
+            nextSection : activeSection.next(),
+            prevSection : activeSection.prev()
+        }
+    }
+
+    var scrollToSection = function(direction) {
+        var section = defineSections(sections);
+        
+        if (direction == 'up' && section.nextSection.length) { /*вниз*/            
+            performTransition(section.nextSection.index());                       // THERE WAS AN ERROR WITH +1
+        } 
+        
+        if (direction == 'down' && section.prevSection.length) { /*вверх*/   
+            performTransition(section.prevSection.index());                       // THERE WAS AN ERROR WITH +1
+        }
+
+    }
+
+
+    $('.wrapper').on({
+        'wheel': function(e) {
+            var deltaY = e.originalEvent.deltaY,
+            direction = "";
+            direction = deltaY > 0 ? 'up': 'down';
+
+            scrollToSection(direction);
+        },
+
+        touchmove: function(e) {
+            e.preventDefault();
+        }
+    })
+        
+
+    $(document).on('keydown', function (e) {
+        var section = defineSections(sections);
+        
+        
+        switch (e.keyCode) {
+            case 38: /*вверх*/
+                if (section.prevSection.length) {
+                    performTransition(section.prevSection.index());
+                }
+                break;
+            case 40: /*вниз*/
+                if (section.nextSection.length) {
+                    performTransition(section.nextSection.index());
+                }
+                break;
+        }
+
+
+    })
+
+    /*bullets*/    
+        
+
+    $('.nav__radio-fake').on('click', function (e) {
+    
+        e.preventDefault();
+
+        var elem = $(e.target),
+        bullets = $('.nav__points-list--item'),
+        bulletTarget = elem.closest(bullets),            
+        bulletEq = bulletTarget.index();
+
+        performTransition(bulletEq); /*Index starts counting from 0, eq from 1*/ 
+
+    })
+
+    $('.nav__link').on('click', function (e) {
+        
+        e.preventDefault();
+
+        var elem = $(e.target),
+        elemId = elem.attr('href'),
+        sectionEq = parseInt(sections.filter(elemId).index());
+        performTransition(sectionEq);  
+        
+    })
+    
+    /* move to section */
+
+    $('.main__arrow').on('click', function(e) {
+        e.preventDefault();
+        performTransition(2);
+    });
+
+    $('.header__btn, .btn--burger').on('click', function(e) {
+        e.preventDefault();
+        performTransition(6); /*Index starts counting from 0, eq from 1. First link is second screen*/ 
+
+    });
+
+    if (isMobile) {
+        $(window).swipe({
+            swipe: function(event, direction, distance, duration, fingerCount, fingerData) {
+                scrollToSection(direction);
+            }
+        });            
+    }
+    
+})
+
+
+let owlCarousel = () => {
+    const burgerCarousel = $(".burger__contents").owlCarousel({
+      items: 1,
+      nav: true,
+      navContainer: $(".slider__controls"),
+      navText: ["", ""],
+      loop: true
+    });
+
+    $(".arrow__btn--left").on("click", e => {
+      e.preventDefault();
+      burgerCarousel.trigger("next.owl.carousel");
+    });
+
+    $(".arrow__btn--right").on("click", e => {
+      e.preventDefault();
+      burgerCarousel.trigger("prev.owl.carousel");
+    });
+  };
+
+  owlCarousel();
+
+  ymaps.ready(init);
+  var myMap,
+  myPlacemark,
+        myPlacemarks = [{
+            latitude: 59.915038,
+            longitude: 30.486096,
+            hintContent: 'Mr.Burger на Товарищеском', 
+            balloonContent: 'Товарищеский проспект, 20/27'
+        },
+        {
+            latitude: 59.94708381,
+            longitude: 30.38481688,
+            hintContent: 'Mr.Burger на Тверской', 
+            balloonContent: 'Тверская улица, 16'
+        },
+        {
+            latitude: 59.891295,
+            longitude: 30.316907,
+            hintContent: 'Mr.Burger на Московском', 
+            balloonContent: 'Московский проспект, 103к2'
+        },
+        {
+            latitude: 59.973999,
+            longitude: 30.311091,
+            hintContent: 'Mr.Burger на Чапыгина', 
+            balloonContent: 'улица Чапыгина, 13А'
+        }];
+
+
+  function init(){     
+      myMap = new ymaps.Map("map", {
+          center: [59.90078846, 30.35164518],
+          zoom: 11,
+          controls: ["zoomControl"],
+          behaviours: ["drag"]
+      });
+      myPlacemarks.forEach(function(obj) {
+        myPlacemark = new ymaps.Placemark([obj.latitude, obj.longitude], { 
+        hintContent: obj.hintContent, 
+        hintContent: obj.balloonContent
+    }, {
+        iconLayout: 'default#image',
+        iconImageHref: './img/icon/map-marker.svg',
+        iconImageSize: [46, 57],
+        iconImageOffset: [-15, -50]
+        });
+
+        myMap.geoObjects.add(myPlacemark);
+    });
+    
+    myMap.behaviors.disable('scrollZoom');
+  }
+
+  // form ajax
+
+var ajaxForm = function (form) {
+    var url = form.attr('action'),
+        data = form.serialize();
+    return $.ajax({
+        type: 'POST',
+        url: url,
+        data: data,
+        dataType: 'JSON'
+    });
+}
+var submitForm = function(e){
+    e.preventDefault();
+    var form = $(e.target);
+    var request = ajaxForm(form);
+    request.done(function(msg){
+        const popup = msg.status ? '#success' : '#error';
+        $status = $(popup)
+
+        $.fancybox.open(
+            $status
+            ,{
+                type: 'inline',
+                maxWidth: 350,
+                fitToView: false,
+                padding: 0,
+                afterClose(){
+                    form.trigger('reset');
+                }
+            });
+
+    });
+
+    request.fail(function(jqXHR, textStatus) {
+        $.fancybox.open(
+            $('#error').html("На сервере произошла ошибка :( >> " + textStatus)
+            ,{
+                type: 'inline',
+                maxWidth: 350,
+                fitToView: false,
+                padding: 0
+            });
+    });
+
+}
+
+$(".status-popup__close").on("click", e => {
+    e.preventDefault();
+    $.fancybox.close();
+});
+
+$('#order-form').on('submit', submitForm)
